@@ -6,26 +6,14 @@ stddraw.py
 평읜상 모듈은 color 모듈에 정의된 Color 오프젝트를 가져와
 사용합니다.
 """
-import time
 import os
 import sys
-import string
-from pathlib import Path
-
-import stdlib.color as color
-from stdlib.color import (
-    WHITE, BLACK, RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW,
-    DARK_RED, DARK_GREEN, DARK_BLUE, GRAY, DARK_GRAY, LIGHT_GRAY,
-    ORANGE, VIOLET, PINK, BOOK_BLUE, BOOK_LIGHT_BLUE, BOOK_RED
-)
-
+import time
 
 import pygame
 
-import tkinter
-
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = 'hide'
-
+import stdlib.color as color
+from stdlib.color import (BLACK, WHITE)
 
 # Default size & value
 

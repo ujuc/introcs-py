@@ -4,8 +4,8 @@ stdrandom.py
 stdrandom 모듈은 모의 랜덤 숫자와 관련된 기능을 정의합니다.
 """
 
-import random
 import math
+import random
 
 
 def seed(i=None):

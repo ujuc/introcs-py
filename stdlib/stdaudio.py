@@ -4,14 +4,12 @@ stdaudio.py
 ``stdaudio`` 모듈은 오디오를 사용하는 기능을 정의해둔다.
 """
 
-import os
 import sys
+
 import numpy
-import stdlib.stdio as stdio
-
-
-os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame
+
+import stdlib.stdio as stdio
 
 _SAMPLES_PER_SECOND = 44100
 _SAMPLES_SIZE = 16

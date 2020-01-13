@@ -15,8 +15,8 @@ stdio.py
 하나 묶음만 사용하도록 한다.
 """
 
-import sys
 import re
+import sys
 import typing
 
 sys.stdin = open(sys.stdin.fileno(), "r", newline=None)
