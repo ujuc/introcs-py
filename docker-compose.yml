@@ -9,6 +9,8 @@ services:
       - default
     volumes:
       - .:/app
+    environment:
+      PYGAME_HIDE_SUPPORT_PROMPT: 1
 
 networks:
   default:

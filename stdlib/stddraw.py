@@ -63,7 +63,7 @@ _mouse_pos = None
 
 
 def _pygame_color(c: color.Color) -> pygame.Color:
-    r = c.get_read()
+    r = c.get_rad()
     g = c.get_green()
     b = c.get_blue()
 

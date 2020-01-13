@@ -16,7 +16,7 @@ class Color:
     def __str__(self):
         return f"({self._r}, {self._g}, {self._b}"
 
-    def get_read(self):
+    def get_rad(self):
         return self._r
 
     def get_green(self):
