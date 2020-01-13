@@ -24,9 +24,9 @@ def bernoulli(p=0.5):
     return random.random() < p
 
 
-def biomial(n, p=0.5):
+def binomial(n, p=0.5):
     heads = 0
-    for i in range(n):
+    for _ in range(n):
         if bernoulli(p):
             heads += 1
 

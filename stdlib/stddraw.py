@@ -436,7 +436,7 @@ def picture(pic, x: float = None, y: float = None):
     hs = pic.height()
 
     pic_surface = pic._surface
-    _surface.blit(pic_surface, [ws - ws/2.0, ys - hs/2.0, ws, hs])
+    _surface.blit(pic_surface, [xs - ws/2.0, ys - hs/2.0, ws, hs])
 
 
 def clear(c: color.Color = WHITE):
@@ -473,9 +473,8 @@ def show(msec: float = float('inf')):
     _show()
     _check_for_events()
 
-
     QUANTUM = .1
-    sec = mse / 1000.0
+    sec = msec / 1000.0
 
     if sec < QUANTUM:
         time.sleep(sec)

@@ -11,6 +11,7 @@ class OutStream:
     """
     출력에 관련된 것들을 정의한다.
     """
+
     def __init__(self, f=None):
         if f is None:
             self._stream = sys.stdout
