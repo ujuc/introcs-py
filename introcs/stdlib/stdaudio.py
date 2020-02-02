@@ -9,7 +9,7 @@ import sys
 import numpy
 import pygame
 
-import stdlib.stdio as stdio
+import introcs.stdlib.stdio as stdio
 
 _SAMPLES_PER_SECOND = 44100
 _SAMPLES_SIZE = 16
@@ -36,7 +36,7 @@ def play_sample(s):
 
     _my_buffer.append(s)
     if len(_my_buffer) > _MY_BUFFER_MAX_LENGTH:
-        temp = [numpy.int16(sample * float(0x7fff)) for sample in _my_buffer]
+        temp = [numpy.int16(sample * float(0x7FFF)) for sample in _my_buffer]
         samples = numpy.array(temp, numpy.int16)
         sound = pygame.sndarray.make_sound(samples)
 
@@ -64,7 +64,7 @@ def save(f, a):
     import wave
 
     file_name = f + '.wav'
-    temp = [int(sample * float(0x7fff)) for sample in a]
+    temp = [int(sample * float(0x7FFF)) for sample in a]
     samples = numpy.array(temp, numpy.int16)
 
     with wave.open(file_name, 'w') as file:
@@ -80,14 +80,15 @@ def read(f):
     file_name = f + '.wav'
     sound = pygame.mixer.Sound(file_name)
     samples = pygame.sndarray.samples(sound)
-    temp = [(float(samples[i]) / float(0x7fff)) for i in range(len(samples))]
+    temp = [(float(samples[i]) / float(0x7FFF)) for i in range(len(samples))]
 
     return temp
 
 
 try:
-    pygame.mixer.init(_SAMPLES_PER_SECOND, _SAMPLES_SIZE, _CHANNEL_COUNT,
-                      _AUDIO_BUFFER_SIZE)
+    pygame.mixer.init(
+        _SAMPLES_PER_SECOND, _SAMPLES_SIZE, _CHANNEL_COUNT, _AUDIO_BUFFER_SIZE
+    )
     _channel = pygame.mixer.Channel(0)
 except pygame.error:
     stdio.writeln('Could not initialize PyGame')

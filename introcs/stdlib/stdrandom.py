@@ -36,12 +36,12 @@ def binomial(n, p=0.5):
 def gaussian(mean=0.0, stddev=1.0):
     x = uniform_float(-1.0, 1.0)
     y = uniform_float(-1.0, 1.0)
-    r = x*x + y*y
+    r = x * x + y * y
 
     while (r >= 1) or (r == 0):
         x = uniform_float(-1.0, 1.0)
         y = uniform_float(-1.0, 1.0)
-        r = x*x + y*y
+        r = x * x + y * y
 
     g = x * math.sqrt(-2 * math.log(r) / r)
 

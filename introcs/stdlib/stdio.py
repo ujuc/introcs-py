@@ -76,7 +76,7 @@ def _read_reg_exp(reg_exp: str) -> str:
         raise ValueError
 
     s = match.group()
-    _buffer = _buffer[match.end():]
+    _buffer = _buffer[match.end() :]
 
     return s.lstrip()
 

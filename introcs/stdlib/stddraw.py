@@ -12,8 +12,8 @@ import time
 
 import pygame
 
-import stdlib.color as color
-from stdlib.color import (BLACK, WHITE)
+import introcs.stdlib.color as color
+from introcs.stdlib.color import BLACK, WHITE
 
 # Default size & value
 
@@ -23,7 +23,7 @@ _DEFAULT_XMAX = 1.0
 _DEFAULT_YMIN = 0.0
 _DEFAULT_YMAX = 1.0
 _DEFAULT_CANVAS_SIZE = 512
-_DEFAULT_PEN_RADIUS = .005
+_DEFAULT_PEN_RADIUS = 0.005
 _DEFAULT_PEN_COLOR = BLACK
 
 _DEFAULT_FONT_FAMILY = 'Helvetica'
@@ -82,8 +82,7 @@ def _user_y(y: float):
     return _ymax - y * (_ymax - _ymin) / _canvas_height
 
 
-def set_canvas_size(w: float = _DEFAULT_CANVAS_SIZE,
-                    h: float = _DEFAULT_CANVAS_SIZE):
+def set_canvas_size(w: float = _DEFAULT_CANVAS_SIZE, h: float = _DEFAULT_CANVAS_SIZE):
     global _backgroud
     global _surface
     global _canvas_width
@@ -177,10 +176,7 @@ def _pixel(x: float, y: float):
     ys = _scale_y(y)
 
     pygame.gfxdraw.pixel(
-        _surface,
-        int(round(xs)),
-        int(round(ys)),
-        _pygame_color(_pen_color)
+        _surface, int(round(xs)), int(round(ys)), _pygame_color(_pen_color)
     )
 
 
@@ -200,12 +196,9 @@ def point(x: float, y: float):
             _surface,
             _pygame_color(_pen_color),
             pygame.Rect(
-                xs - _pen_radius,
-                ys - _pen_radius,
-                _pen_radius * 2.0,
-                _pen_radius * 2.0
+                xs - _pen_radius, ys - _pen_radius, _pen_radius * 2.0, _pen_radius * 2.0
             ),
-            0
+            0,
         )
 
 
@@ -252,7 +245,7 @@ def line(x0: float, y0: float, x1: float, y1: float):
             _pygame_color(_pen_color),
             (x0s, y0s),
             (x1s, y1s),
-            int(round(line_width))
+            int(round(line_width)),
         )
     else:
         _thick_line(x0, y0, x1, y1, _pen_radius / _DEFAULT_CANVAS_SIZE)
@@ -276,8 +269,8 @@ def circle(x: float, y: float, r: float):
         pygame.draw.ellipse(
             _surface,
             _pygame_color(_pen_color),
-            pygame.Rect(xs - ws/2.0, ys - hs/2.0, ws, hs),
-            int(round(_pen_radius))
+            pygame.Rect(xs - ws / 2.0, ys - hs / 2.0, ws, hs),
+            int(round(_pen_radius)),
         )
 
 
@@ -299,8 +292,8 @@ def filled_circle(x: float, y: float, r: float):
         pygame.draw.ellipse(
             _surface,
             _pygame_color(_pen_color),
-            pygame.Rect(xs - ws/2.0, ys - hs/2.0, ws, hs),
-            0
+            pygame.Rect(xs - ws / 2.0, ys - hs / 2.0, ws, hs),
+            0,
         )
 
 
@@ -324,7 +317,7 @@ def rectangle(x: float, y: float, w: float, h: float):
             _surface,
             _pygame_color(_pen_color),
             pygame.Rect(xs, ys - hs, ws, hs),
-            int(round(_pen_radius))
+            int(round(_pen_radius)),
         )
 
 
@@ -347,10 +340,7 @@ def filled_rectangle(x: float, y: float, w: float, h: float):
         ys = _scale_y(y)
 
         pygame.draw.rect(
-            _surface,
-            _pygame_color(_pen_color),
-            pygame.Rect(xs, ys - hs, ws, hs),
-            0
+            _surface, _pygame_color(_pen_color), pygame.Rect(xs, ys - hs, ws, hs), 0
         )
 
 
@@ -377,10 +367,7 @@ def polygon(x: float, y: float):
     points.append((x_scaled[0], y_scaled[0]))
 
     pygame.draw.polygon(
-        _surface,
-        _pygame_color(_pen_color),
-        points,
-        int(round(_pen_radius))
+        _surface, _pygame_color(_pen_color), points, int(round(_pen_radius))
     )
 
 
@@ -394,15 +381,10 @@ def filled_polygon(x: float, y: float):
     points = [(x_scaled[i], y_scaled[i]) for i in range(len(x))]
     points.append((x_scaled[0], y_scaled[0]))
 
-    pygame.draw.polygon(
-        _surface,
-        _pygame_color(_pen_color),
-        points,
-        0
-    )
+    pygame.draw.polygon(_surface, _pygame_color(_pen_color), points, 0)
 
 
-def text(x: float, y: float, s:float):
+def text(x: float, y: float, s: float):
     _make_sure_window_created()
 
     x = float(x)
@@ -436,7 +418,7 @@ def picture(pic, x: float = None, y: float = None):
     hs = pic.height()
 
     pic_surface = pic._surface
-    _surface.blit(pic_surface, [xs - ws/2.0, ys - hs/2.0, ws, hs])
+    _surface.blit(pic_surface, [xs - ws / 2.0, ys - hs / 2.0, ws, hs])
 
 
 def clear(c: color.Color = WHITE):
@@ -459,7 +441,7 @@ def _show_and_wait_forever():
     _make_sure_window_created()
     _show()
 
-    QUANTUM = .1
+    QUANTUM = 0.1
     while True:
         time.sleep(QUANTUM)
         _check_for_events()
@@ -473,7 +455,7 @@ def show(msec: float = float('inf')):
     _show()
     _check_for_events()
 
-    QUANTUM = .1
+    QUANTUM = 0.1
     sec = msec / 1000.0
 
     if sec < QUANTUM:
@@ -489,13 +471,13 @@ def show(msec: float = float('inf')):
 
 def _save_to_file():
     import subprocess
+
     _make_sure_window_created()
 
     stddraw_path = os.path.realpath(__file__)
 
     child_process = subprocess.Popen(
-        [sys.executable, stddraw_path, 'getFileName'],
-        stdout=subprocess.PIPE
+        [sys.executable, stddraw_path, 'getFileName'], stdout=subprocess.PIPE
     )
     so, se = child_process.communicate()
     file_name = so.strip()
@@ -505,15 +487,20 @@ def _save_to_file():
 
     if not file_name.endswith(('.jpg', '.png')):
         child_process = subprocess.Popen(
-            [sys.executable, stddraw_path, 'reportFIleSaveError',
-             'File name must end with ".jpg" or ".png".']
+            [
+                sys.executable,
+                stddraw_path,
+                'reportFIleSaveError',
+                'File name must end with ".jpg" or ".png".',
+            ]
         )
         return
 
     try:
         save(file_name)
         child_process = subprocess.Popen(
-            [sys.executable, stddraw_path, 'confirmFileSave'])
+            [sys.executable, stddraw_path, 'confirmFileSave']
+        )
     except (pygame.error) as e:
         child_process = subprocess.Popen(
             [sys.executable, stddraw_path, 'reportFileSaveError', str(e)]

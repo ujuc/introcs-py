@@ -6,7 +6,7 @@ stdstats.py
 
 import math
 
-import stdlib.stddraw as stddraw
+import introcs.stdlib.stddraw as stddraw
 
 
 def mean(a):
@@ -33,9 +33,9 @@ def median(a):
     length = len(b)
 
     if length % 2 == 1:
-        return b[length//2]
+        return b[length // 2]
     else:
-        return float(b[length//2 - 1] + b[length//2]) / 2.0
+        return float(b[length // 2 - 1] + b[length // 2]) / 2.0
 
 
 def plot_points(a):
@@ -52,7 +52,7 @@ def plot_lines(a):
     stddraw.set_pen_radius(0.0)
 
     for i in range(1, n):
-        stddraw.line(i-1, a[i-1], i, a[i-1])
+        stddraw.line(i - 1, a[i - 1], i, a[i - 1])
 
 
 def plot_bars(a):
@@ -60,4 +60,4 @@ def plot_bars(a):
     stddraw.set_x_scale(-1, n)
 
     for i in range(n):
-        stddraw.filled_rectangle(i-0.25, 0.0, 0.5, a[i])
+        stddraw.filled_rectangle(i - 0.25, 0.0, 0.5, a[i])

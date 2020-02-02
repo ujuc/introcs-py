@@ -6,7 +6,7 @@ picture.py
 
 import pygame
 
-import stdlib.color as color
+import introcs.stdlib.color as color
 
 
 class Picture:

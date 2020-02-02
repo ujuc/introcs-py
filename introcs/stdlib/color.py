@@ -7,7 +7,6 @@ Color 모듈은 Color 클래스와 자주 쓰이는 Color 오브젝트를
 
 
 class Color:
-
     def __init__(self, r: int = 0, g: int = 0, b: int = 0):
         self._r = r
         self._g = g

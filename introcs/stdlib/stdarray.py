@@ -4,7 +4,7 @@ stdarray.py
 ``stdarray`` 모듈은 1차원과 2차원 배열의 생성, 읽기, 쓰기에 관련된 기능을 정의한다.
 """
 
-import stdlib.stdio as stdio
+import introcs.stdlib.stdio as stdio
 
 
 def create_1d(length, value=None):

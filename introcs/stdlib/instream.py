@@ -21,7 +21,7 @@ class InStream:
         self._reading_web_page = False
 
         if file_or_url is None:
-            import stdlib.stdio as stdio
+
             self._stream = sys.stdin
             return
 
@@ -41,7 +41,7 @@ class InStream:
             raise ValueError()
 
         s = match.group()
-        self._buffer = self._buffer[match.end():]
+        self._buffer = self._buffer[match.end() :]
 
         return s.lstrip()
 
