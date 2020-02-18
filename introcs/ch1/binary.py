@@ -15,3 +15,5 @@ while v > 0:
         stdio.write(1)
         n -= v
     v //= 2
+
+stdio.writeln()
