@@ -17,4 +17,3 @@ for i in range(1, end_num + 1):
         stdio.writeln(f"{i}rd Hello")
     else:
         stdio.writeln(f"{i}th Hello")
-

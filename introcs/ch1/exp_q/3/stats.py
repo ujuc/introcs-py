@@ -11,6 +11,4 @@ for i in range(range_num):
 
 avg = sum(random_nums) / len(random_nums)
 
-stdio.writeln(
-    f"avg = {avg}, min = {min(random_nums)}, max = {max(random_nums)}"
-)
+stdio.writeln(f"avg = {avg}, min = {min(random_nums)}, max = {max(random_nums)}")

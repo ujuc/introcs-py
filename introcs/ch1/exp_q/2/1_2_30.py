@@ -13,8 +13,9 @@ y1 = math.radians(y1)
 x2 = math.radians(x2)
 y2 = math.radians(y2)
 
-angle1 = math.acos(math.sin(x1) * math.sin(x2)
-                   + math.cos(x1) * math.cos(x2) * math.cos(y1 - y2))
+angle1 = math.acos(
+    math.sin(x1) * math.sin(x2) + math.cos(x1) * math.cos(x2) * math.cos(y1 - y2)
+)
 
 angle1 = math.degrees(angle1)
 

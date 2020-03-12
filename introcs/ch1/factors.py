@@ -5,7 +5,7 @@ from introcs.stdlib import stdio
 n = int(sys.argv[1])
 
 factor = 2
-while factor*factor <= n:
+while factor * factor <= n:
     while (n % factor) == 0:
         n //= factor
         stdio.write(f"{factor} ")

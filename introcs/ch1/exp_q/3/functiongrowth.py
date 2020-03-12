@@ -2,7 +2,7 @@ import math
 
 from introcs.stdlib import stdio
 
-number = [2**x for x in range(1, 11)]
+number = [2 ** x for x in range(1, 11)]
 
 for n in number:
     stdio.write(f"{math.log2(n)}\t")
